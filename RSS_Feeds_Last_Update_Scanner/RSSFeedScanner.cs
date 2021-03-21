@@ -4,13 +4,22 @@ using System.Text;
 
 namespace RSS_Feeds_Last_Update_Scanner
 {
-    public class RSSFeedScanner
+    public interface IRSSFeedScanner 
     {
+        public int GetLastUpdateDaysAgo(string url);
+    }
 
+    public class RSSFeedScanner:IRSSFeedScanner 
+    {
+       
         public int GetLastUpdateDaysAgo(string url)
         {
-            
+
+
             return 1;
         }
+
+
+      
     }
 }
