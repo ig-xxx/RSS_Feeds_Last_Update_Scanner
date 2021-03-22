@@ -26,14 +26,17 @@ namespace RSS_Feeds_Last_Update_Scanner
 
             return given.FeedURLsByCompany.Where(
                                                     co =>
-                                                    co.Value //Value is the list of RSS urls for company
-                                                            .Select(    url     => scanner.GetLastUpdateDaysAgo(url))//select last update days ago
+                                                    co.Value //Value is the list of RSS urls for company co
+                                                            .Select(    url     => scanner.GetDaysAgoLastPost(url))//select last update days ago
                                                             .OrderBy(   days    => days)                             //asc order - recent update first  
                                                             .FirstOrDefault() > days                                 //qualifier - most recent update > days
-                                                   )
+                                                 )
                                             .Select(co => co.Key) 
                                             .ToList(); 
                          
         }
+
+
+
     }
 }
