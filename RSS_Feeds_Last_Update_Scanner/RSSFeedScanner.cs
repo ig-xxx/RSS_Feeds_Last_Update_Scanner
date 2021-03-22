@@ -37,7 +37,7 @@ namespace RSS_Feeds_Last_Update_Scanner
         {
             //Diff between now and PublishDate in days
 
-            var diff  =  utcDateTime - DateTimeOffset.UtcNow;
+            var diff  =   DateTimeOffset.UtcNow - utcDateTime;
 
             return diff.Days;
         }
